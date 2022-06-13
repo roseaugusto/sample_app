@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\controllers\UserController;
+use App\http\controllers\SportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/user', [UserController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('sport', 'SportController');
